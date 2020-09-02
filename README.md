@@ -29,7 +29,9 @@ The use ffuf
 
 
 #### Generate Wordlist
-**`$ cat "https://www.twitter.com" | getJS -complete | ./wordlistgen -p params.txt -d"www.twitter.com" | tee wordlist`**
+**`$ cat <Resolved-Domains> | getJS -complete | ./wordlistgen -p params.txt -d <Un-Resolved> | tee wordlist`**
+
+**`$ cat "https://www.twitter.com" | getJS -complete | ./wordlistgen -p params.txt -d "www.twitter.com" | tee wordlist`**
 
 ```
 OUTPUT:
@@ -39,6 +41,10 @@ www.twitter.com/v/latest/72x72//?url=FUZZ
 www.twitter.com/responsive-web-internal/sourcemaps/client-web-legacy/en.363b7e25.js.map/?url=FUZZ
 www.twitter.com/articles/18311/?url=FUZZ
 ```
+
+###### You can also use `-dL` to load a list of subdomains like:
+**`$ cat <Resolved-Domains> | getJS -complete | ./wordlistgen -p params.txt -dL <Un-Resolved> | tee wordlist`**
+
 
 ##### Replace Variables with Payload
 **`$ cat wordlist | qsreplace http://127.0.0.1/admin | tee -a hosts`**
