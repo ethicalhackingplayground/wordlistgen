@@ -22,7 +22,7 @@ Generates target specific word lists for Fuzzing with fuff
 The use ffuf
 
 
-**Then get creative with FFuf**
+**Then get creative with FFuF or https://github.com/tomnomnom/qsreplace**
 
 
 
