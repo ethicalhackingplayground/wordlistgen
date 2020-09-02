@@ -1,5 +1,5 @@
 # wordlistgen
-Generates target specific word lists for Fuzzing with fuff
+Generates target specific word lists by searching for endpoints in javascript and appends parameters for Fuzzing with other tools
 
 **Version 1.0**
 
