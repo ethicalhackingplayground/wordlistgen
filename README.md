@@ -11,7 +11,7 @@ Generates target specific word lists by searching for endpoints in javascript an
 **`$ go get github.com/003random/getJS`**
 
 
-![GitHub Logo](carbon.png)
+![GitHub Logo](carbon1.png)
 
 
 ### Generate wordlist
