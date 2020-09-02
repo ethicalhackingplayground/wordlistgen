@@ -19,6 +19,12 @@ Generates target specific word lists for Fuzzing with fuff
 
 ![GitHub Logo](carbon2.png)
 
+The use ffuf
+
+
+**Then get creative with FFuf**
+
+
 
 
 **If you get a bounty please support by buying me a coffee**
